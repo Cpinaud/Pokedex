@@ -10,9 +10,7 @@
     <header>
         <!--TO DO-->
     </header>
-    <main>
-        <!--TO DO-->
-    </main>
+
     <footer>
         <!--TO DO-->
     </footer>
