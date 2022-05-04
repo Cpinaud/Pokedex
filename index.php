@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +7,14 @@
     <title>Pokedex</title>
 </head>
 <body>
-    
+    <header>
+        <!--TO DO-->
+    </header>
+    <main>
+        <!--TO DO-->
+    </main>
+    <footer>
+        <!--TO DO-->
+    </footer>
 </body>
 </html>
