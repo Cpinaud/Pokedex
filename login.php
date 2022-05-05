@@ -12,7 +12,8 @@
             if (!$conexion) {
                 die("Connection failed: " . mysqli_connect_error());
             }else{
-                $sql = "SELECT * FROM tipos_pokemon ";
+
+                $sql = "SELECT Count(id) FROM tipos_pokemon ";
                 $comando = $conexion->prepare($sql);
                 $password = md5($password);
     
@@ -20,9 +21,21 @@
                 
                 $comando->execute();
                 $resultado = $comando->get_result();
-                $fila = $resultado->fetch_assoc();
+                $cantTipos = $resultado->fetch_assoc();
+                $cantTipos= $cantTipos["Count(id)"];
+
+                $sql = "SELECT * FROM tipos_pokemon ";
+                $comando = $conexion->prepare($sql);
+                         
+                
+                $comando->execute();
+                $resultado = $comando->get_result();
+                for($i=0;$i<$cantTipos;$i++){
+                    $fila = $resultado->fetch_assoc();
         
-                echo"el Tipo: ".$fila["nombre"]." tiene el id: ".$fila["id"];
+                echo"el Tipo: ".$fila["nombre"]." tiene el id: ".$fila["id"]."<br/>";
+                }
+                
         
                 $conexion->close();
     
@@ -35,29 +48,3 @@
         
     }
 ?>
-      
-    
-
-<!--
-    
-
-
-       
-
-!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-
-</head>
-<body>
-<form action="prueba.php" method="post">
-    <input type="text" name="usuario" value=""><br>
-    <input type="password" name="clave" value=""><br>
-    <input type="submit">
-
-
-</form>
-</body>
-</html>-->
