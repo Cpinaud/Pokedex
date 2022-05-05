@@ -3,38 +3,38 @@
     $password = $_POST["clave"];
     $enviado = $_POST["enviar"];
     if($enviado){
-
-    
         $config = parse_ini_file("config.ini");
         
-        $conexion =mysqli_connect($config["host"],$config["usuario"],$config["clave"],$config["base"]);
+        if($config["usuario"]==$usuario && $config["clave"]==$password){
+            $config = parse_ini_file("config.ini");
+            $conexion =mysqli_connect($config["host"],$config["usuario"],$config["clave"],$config["base"]);
 
-        if (!$conexion) {
-            die("Connection failed: " . mysqli_connect_error());
-        }else{
-            $sql = "SELECT * FROM tipos_pokemon ";
-            $comando = $conexion->prepare($sql);
-            $password = md5($password);
-
-           
+            if (!$conexion) {
+                die("Connection failed: " . mysqli_connect_error());
+            }else{
+                $sql = "SELECT * FROM tipos_pokemon ";
+                $comando = $conexion->prepare($sql);
+                $password = md5($password);
+    
+               
+                
+                $comando->execute();
+                $resultado = $comando->get_result();
+                $fila = $resultado->fetch_assoc();
+        
+                echo"el Tipo: ".$fila["nombre"]." tiene el id: ".$fila["id"];
+        
+                $conexion->close();
+    
+            }
             
-            $comando->execute();
-            $resultado = $comando->get_result();
-            $fila = $resultado->fetch_assoc();
     
-            var_dump($fila);
-    
-            $conexion->close();
-
+        }else{
+            echo"User y/o Pass invalidos";
         }
         
-        
-
-
-
-        
     }
-    ?>
+?>
       
     
 
