@@ -16,6 +16,7 @@
             $comando = $conexion->prepare($sql);
             $password = md5($password);
 
+           
             
             $comando->execute();
             $resultado = $comando->get_result();
