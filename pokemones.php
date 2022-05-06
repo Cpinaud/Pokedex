@@ -1,6 +1,6 @@
 <?php
-         $config = parse_ini_file("config.ini");
-         $conexion =mysqli_connect($config["host"],$config["usuario"],$config["clave"],$config["base"]);
+        $config = parse_ini_file("config.ini");
+        $conexion =mysqli_connect($config["host"],$config["usuario"],$config["clave"],$config["base"]);
         $sql = "SELECT Count(id) FROM pokemones";
         $comando = $conexion->prepare($sql);
         $comando->execute();
@@ -13,9 +13,28 @@
         $comando->execute();
         $pokemones = $comando->get_result();
         echo"</br></br>LOS POKEMONES SON:</br></br>";
+        echo
+        "<table>
+                <tr>
+                    <td>ID</td>
+                    <td>Nombre</td>
+                </tr>";
         for($i=0;$i<$cantPokemones;$i++){
             $fila = $pokemones->fetch_assoc();
-
-        echo"el Pokemon con id : ".$fila["id"]." tiene el nombre: ".$fila["nombre"]."</br>";
+            if(isset($_SESSION['logueado'])){
+                echo "<tr>
+                    <td>".$fila["id"]."</td>
+                    <td>".$fila["nombre"]."</td>
+                    <td><a href='modificar.php'>Modificar</a></td>
+                    <td><a href='eliminar.php'>Eliminar</a></td>
+                </tr>";
+            }else{
+            echo
+            "<tr>
+                <td>".$fila["id"]."</td>
+                <td>".$fila["nombre"]."</td>
+            </tr>";
+            }
         }
+        echo "</table>";
         ?>
