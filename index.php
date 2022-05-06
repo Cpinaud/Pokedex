@@ -7,18 +7,17 @@
     <title>Pokedex</title>
 </head>
 <body>
+<?php
+        
+        include_once("valida.php");
+    ?>
+    <?php
+        
+        include_once("login.php");
+    ?>
     <div class="contenido">
-        <form action="login.php" method="POST" enctype="multipart/form-data">
-            <div>
-                <label for="usuario">User: </label>
-                <input type="text" name="usuario" id="usuario">
-            </div>
-            <div>
-                <label for="clave">Password: </label>
-                <input type="password" name="clave" id="clave">
-            </div>
-            <input type="submit" name="enviar" value='ENVIAR'>
-        </form>
+        <h1>ACA SE MUESTRAN LOS POKEMONES</h1>
+        
     </div>
 </body>
 </html>
