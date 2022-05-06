@@ -16,7 +16,10 @@
         include_once("login.php");
     ?>
     <div class="contenido">
-        <h1>ACA SE MUESTRAN LOS POKEMONES</h1>
+    <?php
+        
+        include_once("pokemones.php");
+    ?>
         
     </div>
 </body>
