@@ -1,22 +1,21 @@
 <?php
     session_start();
+    include_once "Database.php";
     if(isset($_SESSION["logueado"])){
         if(isset($_GET["id"])){
             $id = $_GET["id"];
-            //$database= new Database("config.ini");
-            //$sqlConnect = $database->isConnected();
-            $config = parse_ini_file("config.ini");
-            $conexion =mysqli_connect($config["host"],$config["usuario"],$config["clave"],$config["base"]);
-            if($conexion){
-            $sqlConsult = "SELECT tp.imagen imgTipo ,p.* FROM pokemones p,tipos_pokemon tp WHERE p.tipo_id=tp.id AND p.id= '$id'";
-            $comando = $conexion->prepare($sqlConsult);
-            $comando->execute();
-            $buscarPokemon = $comando->get_result();
-            $buscarPokemon = $buscarPokemon->fetch_assoc();
-            $pokemonNombre= $buscarPokemon["nombre"];
-            $pokemonImagen= $buscarPokemon["imagen"];
-            $pokemonImgTipo= $buscarPokemon["imgTipo"];
-            $pokemonDescripcion= $buscarPokemon["descripcion"];
+            $database= new Database("config.ini");
+            $sqlConnect = $database->isConnected();
+            if($sqlConnect){
+                $sqlConsult = "SELECT tp.imagen imgTipo ,p.* FROM pokemones p,tipos_pokemon tp WHERE p.tipo_id=tp.id AND p.id= '$id'";
+                $comando = $sqlConnect->prepare($sqlConsult);
+                $comando->execute();
+                $buscarPokemon = $comando->get_result();
+                $buscarPokemon = $buscarPokemon->fetch_assoc();
+                $pokemonNombre= $buscarPokemon["nombre"];
+                $pokemonImagen= $buscarPokemon["imagen"];
+                $pokemonImgTipo= $buscarPokemon["imgTipo"];
+                $pokemonDescripcion= $buscarPokemon["descripcion"];
         }else{
                 echo"<span id='errorConexion'>No se puedo conectar con la base de datos</span>";
             }

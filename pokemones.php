@@ -1,14 +1,25 @@
 <?php
+        include_once("header.php");
+        
+        include_once("buscador.php");
         $config = parse_ini_file("config.ini");
         $conexion =mysqli_connect($config["host"],$config["usuario"],$config["clave"],$config["base"]);
-        $sql = "SELECT Count(id) FROM pokemones";
-        $comando = $conexion->prepare($sql);
-        $comando->execute();
-        $cantPokemones = $comando->get_result();
-        $cantPokemones = $cantPokemones->fetch_assoc();
-        $cantPokemones= $cantPokemones["Count(id)"];
-
-        $sql = "SELECT * FROM pokemones";
+        if(isset($_POST["search"])){
+            $busqueda = $_POST["search"];
+            $sql = "SELECT * FROM pokemones WHERE nombre = '$busqueda'";
+            $comando = $conexion->prepare($sql);
+            $comando->execute();
+            $pokemones = $comando->get_result();
+            $fila = $pokemones->fetch_assoc();
+           if(empty($fila)){
+            echo$busqueda." no encontrado en la Pokedex";
+           }
+        }
+        if(!isset($fila)){
+          
+            $sql = "SELECT * FROM pokemones";
+        }
+        
         $comando = $conexion->prepare($sql);
         $comando->execute();
         $pokemones = $comando->get_result();
@@ -19,8 +30,9 @@
                     <td>ID</td>
                     <td>Nombre</td>
                 </tr>";
-        for($i=0;$i<$cantPokemones;$i++){
-            $fila = $pokemones->fetch_assoc();
+        $fila = $pokemones->fetch_assoc();
+        while($fila){
+            
             if(isset($_SESSION['logueado'])){
                 echo "<tr>
                     <td>".$fila["id"]."</td>
@@ -35,6 +47,8 @@
                 <td>".$fila["nombre"]."</td>
             </tr>";
             }
+            $fila = $pokemones->fetch_assoc();
         }
         echo "</table>";
+        
         ?>

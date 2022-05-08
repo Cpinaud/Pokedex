@@ -1,6 +1,8 @@
-<?php
 
+<?php
+include_once("header.php");
 include_once ("Valida.php");
+
 class Login
 {
     private $logueado;
@@ -12,17 +14,14 @@ class Login
 
     public function mostrarLogin(){
         if (!isset($_SESSION["logueado"]) && !$this->isLoged()) {
-            echo "<form action='leerlogin.php' method='POST' enctype='multipart/form-data'>
-            <div>
-                <label for='usuario'>User: </label>
-                <input type='text' name='usuario' id='usuario'>
-            </div>
-            <div>
-                <label for='clave'>Password: </label>
-                <input type='password' name='clave' id='clave'>
-            </div>
-            <input type='submit' name='enviar' value='ENVIAR'>
-        </form>";
+            echo "
+                <div class='container-fluid '>
+                <form class='row justify-content-around' action='leerlogin.php' method='POST' enctype='multipart/form-data'>
+                    <input class='col-3' type='text' name='usuario' id='usuario' placeholder='Usuario' >
+                    <input class='col-3' type='password' name='clave' id='clave' placeholder = 'contraseña'>            
+                    <input class='col-3 button1' type='submit' name='enviar' value='LogIn'>
+                </form>
+                </div>";
         }else{
             $this->mostrarMenu();
         }
@@ -52,11 +51,13 @@ class Login
 
     }
     public function mostrarMenu(){
-        echo "<form action='Disconnect.php' method='POST'>
+        echo "<form  action='Disconnect.php' method='POST'>
             ".$this->mostrarBoton("editprofile","editprofile")."
             ".$this->mostrarBoton("Desconectar","exit").
         "</form>
+        
             ";
     }
 }
+include_once("footer.php");
 ?>
