@@ -7,7 +7,7 @@
             $database= new Database("config.ini");
             $sqlConnect = $database->isConnected();
             if($sqlConnect){
-                $sqlConsult = "SELECT tp.imagen imgTipo ,p.* FROM pokemones p,tipos_pokemon tp WHERE p.tipo_id=tp.id AND p.id= '$id'";
+                $sqlConsult = "SELECT tp.tipo_imagen 'imgTipo',p.* FROM pokemones p,tipos_pokemon tp WHERE p.tipo_id=tp.id AND p.id= '$id'";
                 $comando = $sqlConnect->prepare($sqlConsult);
                 $comando->execute();
                 $buscarPokemon = $comando->get_result();
@@ -51,7 +51,7 @@
         </div>
         <div class='col-5'>
             <div>
-                <img src='".mostrar_imagen('img/pokemones/tipo',$pokemonImgTipo)."' class='img-fluid img-tipo'>      
+                <img src='".mostrar_imagen('img/tipos',$pokemonImgTipo)."' class='img-fluid img-tipo'>      
             </div>
             <div>
                 <h2>".$pokemonNombre."</h2>      
