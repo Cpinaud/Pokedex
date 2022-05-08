@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 include_once ("Valida.php");
 class Login
 {

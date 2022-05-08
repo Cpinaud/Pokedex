@@ -25,7 +25,7 @@
                 echo "<tr>
                     <td>".$fila["id"]."</td>
                     <td>".$fila["nombre"]."</td>
-                    <td><a href='modificar.php'>Modificar</a></td>
+                    <td><a href='modificarAgregar.php?id=".$fila["id"]."'>Modificar</a></td>
                     <td><a href='eliminar.php'>Eliminar</a></td>
                 </tr>";
             }else{
