@@ -7,17 +7,32 @@
     <title>Pokedex</title>
 </head>
 <body>
-<?php
-        
-        include_once("valida.php");
-    ?>
     <?php
-        
-        include_once("login.php");
+        include_once("Valida.php");
+        include_once("Login.php");
+
+
+        if(isset($_SESSION["logueado"])){
+            $log = new Login(1);
+            $log->mostrarMenu();
+        }else{
+            $log = new Login(0);
+            $log->mostrarLogin();
+        }
+       /* if(!isset($_POST["exit"])) {
+            $log = new Login(0);
+            $log->mostrarLogin();
+        }else if(isset($_SESSION["logueado"])){
+            $log = new Login(0);
+            $log->mostrarLogin();
+        }else{
+            $log = new Login(1);
+            $log->mostrarMenu();
+        }*/
+
     ?>
     <div class="contenido">
     <?php
-        
         include_once("pokemones.php");
     ?>
         

@@ -1,28 +1,25 @@
 <?php
+    include_once "Login.php";
+
     $usuario = $_POST["usuario"];
     $password = $_POST["clave"];
-    
-        $config = parse_ini_file("config.ini");
-        $conexion =mysqli_connect($config["host"],$config["usuario"],$config["clave"],$config["base"]);
-        $sql = "SELECT 1 FROM usuarios WHERE username = '$usuario' AND password = '$password'";
-        $comando = $conexion->prepare($sql);
-        $comando->execute();
-        $resultado = $comando->get_result();
-        $userValido = $resultado->fetch_assoc();
-        if(isset($userValido)){
-            setcookie("cookie1",md5($password),time()+3600);
-            session_start();
-            $_SESSION["logueado"] = '1';
-            header("location: Index.php?valid=0");
+    $config = parse_ini_file("config.ini");
+    $conexion =mysqli_connect($config["host"],$config["usuario"],$config["clave"],$config["base"]);
+    $sql = "SELECT 1 FROM usuarios WHERE username = '$usuario' AND password = '$password'";
+    $comando = $conexion->prepare($sql);
+    $comando->execute();
+    $resultado = $comando->get_result();
+    $userValido = $resultado->fetch_assoc();
+    if(isset($userValido)){
+        setcookie("cookie1",md5($password),time()+3600);
+        session_start();
+        $_SESSION["logueado"] = 'true';
+        header("location: Index.php?valid=0");
            
         }else{
+
             header("location: Index.php?valid=1");
         }
-        
-       
-        
-   
-
 /*
 $config = parse_ini_file("config.ini");
         
