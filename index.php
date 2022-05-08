@@ -5,8 +5,8 @@
 <header>
     <div class="row justify-content-between align-items-center">
         <div class="col-5 logo">
-            <img class="img-fluid" src="img/pokebola.png" alt="" style="border:2px solid black">
-            <img class="img-fluid" src="img/logopokedex.png" alt="" style="border:2px solid black">
+            <img class="img-fluid" src="img/pokebola.png" alt="">
+            <img class="img-fluid" src="img/logopokedex.png" alt="" style=" width:75% ">
         </div>
             <div class='col-5 row'>
                         
