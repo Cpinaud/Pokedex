@@ -56,16 +56,16 @@ public function mostrarPopUpEliminarPokemon(){
                     <div class='modal-header'>
                       <h5 class='modal-title'>Desea eliminar a ".$resultado." ?</h5>
                       <form action='closeDelete.php' method='POST' >
-                        <button type='submit' name='delete' class='btn-close' data-bs-dismiss='modal' aria-label='Close' value='on'>SI</button>
-                        <input type='text' name='id'  value = '".$id."' style='display:none !important'> 
-                        <button type='submit' name='close' class='btn-close' data-bs-dismiss='modal' aria-label='Close'>NO</button>
+                        <button type='submit' name='delete'  data-bs-dismiss='modal' class='btn btn-success' aria-label='Close' value='on'>SI</button>
+                        <input type='text' name='id'  value = '".$id."' style='display:none !important' > 
+                        <button type='submit' name='close'  data-bs-dismiss='modal' class='btn btn-danger' aria-label='Close'>NO</button>
                       </form>
                     </div>
                   </div>
                 </div>
               </div>";
             }else{
-                echo"pokemon no existe";
+                echo"el pokemon no se puede eliminar porque no existe";
             }
     }else{
             echo"<span id='errorConexion'>No se puedo conectar con la base de datos</span>";

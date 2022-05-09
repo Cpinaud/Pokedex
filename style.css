@@ -114,7 +114,7 @@
 header{
   position: fixed;
   width: 100%;
-  background-color: #F33D2F;
+  background-color: #CB2C19;
   left: 0;
   top: 0;
   z-index: 1000;
@@ -124,31 +124,49 @@ header{
 
 .busqueda{
   background-color: none;
-  color:#F33D2F;
-  border-color:#F33D2F;
+  color:#CB2C19;
+  border-color:#CB2C19;
 }
 .busqueda:hover{
-  background-color: #F33D2F;
+  background-color: #CB2C19;
   color:white;
   border:1px solid white;
+}
+
+.buscador{
+  border:none;
+  border-bottom: 2px solid rgba(203, 44, 25,0.6);
+  
+  
+  text-align: center;
+  padding:0;
+}
+.buscador:focus{
+  border: none;
+  background-color: rgba(203, 44, 25,0.6);
+  color:white;
+  outline:none !important;
+  outline-width: 0 !important;
+  box-shadow: none;
 }
 
 .button1 {
   background-color: white;
   color: black;
-  border: 2px solid #CB2C19; 
+  border: 2px  #CB2C19; 
   border-radius: 4px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
   .button1 {
       -webkit-transition-duration: 0.4s; /* Safari */
       transition-duration: 0.4s;
+      color:#CB2C19;
   }
   
   .button1:hover {
       background-color: #CB2C19;
       color: white;
-      border-color:white;
+      border:1.5px solid white !important;
   }
 
 
@@ -177,7 +195,7 @@ header{
     }
   }
   .tituloPokemones{
-    color: red;
+    color: #CB2C19;
     font-size: 2em;
     font-weight: bold;
     position: center;
@@ -193,4 +211,16 @@ header{
   }
   a:hover{
     text-decoration: none;
+  }
+
+  .modal-header{
+    box-shadow: 2px 2px 5px black;
+  }
+
+  .modal{
+    background-color: rgba(0,0,0,0.7);
+  }
+/*RESPONSIVE PARA MOBILE (HEADER)*/
+  @media (max-width:320px){
+    
   }

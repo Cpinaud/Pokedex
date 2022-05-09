@@ -42,18 +42,16 @@ class Login
     {
         if($name=='exit'){
             if(isset($_SESSION['logueado'])){
-                return "<input type='submit' value='".$value."' name='".$name."'>";
+                return "<input class=' col-3 button1' type='submit' value='".$value."' name='".$name."'>";
             }
-        }else{
-            return "<input type='submit' value='".$value."' name='".$name."'>";
         }
 
 
     }
     public function mostrarMenu(){
-        echo "<form  action='Disconnect.php' method='POST'>
+        echo "<form  class=' row justify-content-end' action='Disconnect.php' method='POST'>
            
-            ".$this->mostrarBoton("Desconectar","exit").
+            ".$this->mostrarBoton("Salir","exit").
         "</form>
         
             ";
