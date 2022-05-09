@@ -65,7 +65,7 @@
                     <td><img src='".mostrar_imagen('img/pokemones',$fila["imagen"])."' class='img-fluid'style='width: 10%'></td>    
                     <td><img src='".mostrar_imagen('img/tipos',$fila["imgTipo"])."' class='img-fluid img-tipo' style='width: 10%'></td>  
                     <td><a href='index.php?alta=0&id=".$fila["id"]."'>Modificar</a></td>
-                    <td><a href='eliminar.php'>Eliminar</a></td>
+                    <td><a href='index.php?delete=1&id=".$fila["id"]."'>Eliminar</a></td>
                 </tr>";
             }else{
             echo

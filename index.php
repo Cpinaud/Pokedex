@@ -19,10 +19,12 @@
                             if(isset($_SESSION["logueado"])){
                                 $log = new Login(1);
                                 $log->mostrarMenu();
+                                $log1 = new Popup();
+                                $log1->mostrarPopUpEliminarPokemon();
 
                             }else{
                                 $log = new Popup();
-                                $log->mostrarPopUp();
+                                $log->mostrarPopUpCredencialesInvalidas();
                                 $log = new Login(0);
                                 $log->mostrarLogin();
                             }

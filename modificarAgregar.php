@@ -23,7 +23,7 @@
             }
         }
         else {
-            echo "<h1>PROBANDO PAPA</h1>         ";
+           
             $agregando = true;
         }
     }
