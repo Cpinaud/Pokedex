@@ -1,6 +1,7 @@
 <?php
-    session_start();
+
     include_once "Database.php";
+
     if(isset($_SESSION["logueado"])){
         if(isset($_GET["id"])){
             $id = $_GET["id"];
@@ -16,9 +17,14 @@
                 $pokemonImagen= $buscarPokemon["imagen"];
                 $pokemonImgTipo= $buscarPokemon["imgTipo"];
                 $pokemonDescripcion= $buscarPokemon["descripcion"];
+                $agregando = false;
         }else{
                 echo"<span id='errorConexion'>No se puedo conectar con la base de datos</span>";
             }
+        }
+        else {
+            echo "<h1>PROBANDO PAPA</h1>         ";
+            $agregando = true;
         }
     }
 
@@ -26,48 +32,68 @@
 
 <?php
     include_once("mostrarImagen.php");
+
+
 ?>
-<!--ACA VA EL INCLUDE DE HEADER-->
 
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokedex</title>
-    <link href="style.css" rel="stylesheet" type="text/css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-</head>
-<body>
+
+
 <?php
-    echo"
+    if($agregando){
+        echo " <div class='mb-3'>
+                  <label for='formFile' class='form-label'>Cógido</label>
+                  <input class='form-control' type='text' id='codigo' name='codigo'>
+                </div>
+                <div class='mb-3'>
+                  <label for='formFileDisabled' class='form-label'>Nombre</label>
+                  <input class='form-control' type='text' id='nombre' name='nombre' multiple>
+                </div>
+                <div class='mb-3'>
+                  <label for='formFileDisabled' class='form-label'>Descripción</label>
+                  <input class='form-control' type='text' id='descripcion' name='descripcion'>
+                </div>
+               
+                <div class='mb-3'>
+                  <label for='formFileLg' class='form-label'>Cargue su imágen</label>
+                  <input class='form-control form-control-lg' id='imagen' type='file'>
+                </div> <div class='mb-3'>
+                  <label for='formFileSm' class='form-label'>Tipo</label>
+                   <div class='dropdown'>
+                 <a class='btn btn-danger dropdown-toggle' href='#' role='button' id='dropdownMenuLink' data-bs-toggle='dropdown' aria-expanded='false'>
+                    Dropdown link
+                  </a>
+                 <ul class='dropdown-menu' aria-labelledby='dropdownMenuLink'>
+                        <li><a class='dropdown-item href='#'>aaaaaa</a></li>
+                       <li><a class='dropdown-item href='#'>bbbbbbb</a></li>
+                 </ul>
+                    </div>
+                </div>
+               ";
+    }else {
+        echo "
    
     <div class='row justify-content-center align-items-center contenedor-detalles'>
         
         <div class='col-3 '>
-                <img src='".mostrar_imagen('img/pokemones',$pokemonImagen)."' class='img-fluid'>  
+                <img src='" . mostrar_imagen('img/pokemones', $pokemonImagen) . "' class='img-fluid'>  
         </div>
         <div class='col-5'>
             <div>
-                <img src='".mostrar_imagen('img/tipos',$pokemonImgTipo)."' class='img-fluid img-tipo'>      
+                <img src='" . mostrar_imagen('img/tipos', $pokemonImgTipo) . "' class='img-fluid img-tipo'>      
             </div>
             <div>
-                <h2>".$pokemonNombre."</h2>      
+                <h2>" . $pokemonNombre . "</h2>      
             </div>
             <div >
-                <p>".$pokemonDescripcion."</p>      
+                <p>" . $pokemonDescripcion . "</p>      
             </div>
         </div>
     
-    </div>"
+    </div>";
+    }
     ?>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    </body>
-    </html>
-
+    
 
 
 

@@ -6,7 +6,7 @@
     <div class="row justify-content-between align-items-center">
         <div class="col-5 logo">
             <img class="img-fluid" src="img/pokebola.png" alt="">
-            <img class="img-fluid" src="img/logopokedex.png" alt="" style=" width:75% ">
+            <a href="index.php"><img class="img-fluid" src="img/logopokedex.png" alt="" style=" width:75% "></a>
         </div>
             <div class='col-5 row'>
                         
@@ -19,6 +19,7 @@
                             if(isset($_SESSION["logueado"])){
                                 $log = new Login(1);
                                 $log->mostrarMenu();
+
                             }else{
                                 $log = new Popup();
                                 $log->mostrarPopUp();
@@ -49,8 +50,23 @@
     
 <div class="contenido-general">
     <?php
+        if(isset($_GET["alta"])){
+            $alta=$_GET["alta"];
 
-        include_once("pokemones.php");
+            if($alta==0){
+                if(isset($_GET["id"])){
+                    $id=$_GET["id"];
+                }
+                include_once("modificarAgregar.php");
+            }else{
+                include_once("modificarAgregar.php");
+            }
+
+
+        }else{
+            include_once("pokemones.php");
+        }
+
         include_once("footer.php");
     ?>
     </div>

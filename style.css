@@ -176,3 +176,9 @@ header{
               transform: translateY(-700px) rotate(600deg);
     }
   }
+  .tituloPokemones{
+    color: red;
+    font-size: 2em;
+    font-weight: bold;
+    position: center;
+  }

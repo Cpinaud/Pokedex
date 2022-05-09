@@ -2,6 +2,7 @@
         include_once("header.php");
         include_once("mostrarImagen.php");
         include_once("buscador.php");
+
         $config = parse_ini_file("config.ini");
         $conexion =mysqli_connect($config["host"],$config["usuario"],$config["clave"],$config["base"]);
         if(isset($_POST["search"])){
@@ -23,7 +24,25 @@
         $comando = $conexion->prepare($sql);
         $comando->execute();
         $pokemones = $comando->get_result();
-        echo"</br></br>LOS POKEMONES SON:</br></br>";
+        if(isset($_SESSION['logueado'])) {
+            echo "<div class='row row justify-content-between align-items-center'>
+                    <div class='col-6'>
+                        <h1 class='tituloPokemones'>LOS POKEMONES SON:</h1>
+                    </div>
+                    <div  class='col-1'>
+                        <a href='index.php?alta=1' class='btn btn-outline-danger'>AGREGAR POKEMÓN</a>
+                    </div>
+              </div>
+              ";
+        }
+        else {
+            echo "<div class='row row justify-content-between align-items-center'>
+                    <div class='col-6'>
+                        <h1 class='tituloPokemones'>LOS POKEMONES SON:</h1>
+                    </div>
+              </div>
+              ";
+        }
         echo
         "<table class='table table-responsive'>
             <thead>
@@ -45,7 +64,7 @@
                     <td>".$fila["nombre"]."</td>
                     <td><img src='".mostrar_imagen('img/pokemones',$fila["imagen"])."' class='img-fluid'style='width: 10%'></td>    
                     <td><img src='".mostrar_imagen('img/tipos',$fila["imgTipo"])."' class='img-fluid img-tipo' style='width: 10%'></td>  
-                    <td><a href='modificarAgregar.php?id=".$fila["id"]."'>Modificar</a></td>
+                    <td><a href='index.php?alta=0&id=".$fila["id"]."'>Modificar</a></td>
                     <td><a href='eliminar.php'>Eliminar</a></td>
                 </tr>";
             }else{
