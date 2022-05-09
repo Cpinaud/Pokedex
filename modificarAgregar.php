@@ -1,12 +1,12 @@
 <?php
 
     include_once "Database.php";
-
-    if(isset($_SESSION["logueado"])){
+    $database= new Database("config.ini");
+    $sqlConnect = $database->isConnected();
+    
         if(isset($_GET["id"])){
             $id = $_GET["id"];
-            $database= new Database("config.ini");
-            $sqlConnect = $database->isConnected();
+            
             if($sqlConnect){
                 $sqlConsult = "SELECT tp.tipo_imagen 'imgTipo',p.* FROM pokemones p,tipos_pokemon tp WHERE p.tipo_id=tp.id AND p.id= '$id'";
                 $comando = $sqlConnect->prepare($sqlConsult);
@@ -26,7 +26,7 @@
            
             $agregando = true;
         }
-    }
+    
 
 ?>
 

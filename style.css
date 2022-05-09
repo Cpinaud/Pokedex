@@ -182,3 +182,15 @@ header{
     font-weight: bold;
     position: center;
   }
+
+  body{
+    padding: 2%;
+  }
+
+  a{
+    text-decoration: none;
+    color:#CB2C19;
+  }
+  a:hover{
+    text-decoration: none;
+  }

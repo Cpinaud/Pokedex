@@ -52,7 +52,7 @@ class Login
     }
     public function mostrarMenu(){
         echo "<form  action='Disconnect.php' method='POST'>
-            ".$this->mostrarBoton("editprofile","editprofile")."
+           
             ".$this->mostrarBoton("Desconectar","exit").
         "</form>
         

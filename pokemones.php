@@ -25,11 +25,11 @@
         $comando->execute();
         $pokemones = $comando->get_result();
         if(isset($_SESSION['logueado'])) {
-            echo "<div class='row row justify-content-between align-items-center'>
+            echo "<div class='row row justify-content-around align-items-center'>
                     <div class='col-6'>
                         <h1 class='tituloPokemones'>LOS POKEMONES SON:</h1>
                     </div>
-                    <div  class='col-1'>
+                    <div  class='col-2'>
                         <a href='index.php?alta=1' class='btn btn-outline-danger'>AGREGAR POKEMÓN</a>
                     </div>
               </div>
@@ -47,13 +47,18 @@
         "<table class='table table-responsive'>
             <thead>
                 <tr>
-                    <th>Número</th>
+                    <th>Id</th>
                     <th>Nombre</th>
                     <th>Imagen</th>
-                    <th>Tipo</th>
-                    <th>Editar</th>
-                    <th>Eliminar</th>
-                </tr>
+                    <th>Tipo</th>";
+         if(isset($_SESSION['logueado'])){
+                  echo"  <th>Editar</th>
+                    <th>Eliminar</th>";
+                
+         }else{
+            echo"  <th>Ver</th>";
+         }
+         echo"</tr>
             </thead>";
         $fila = $pokemones->fetch_assoc();
         while($fila){
@@ -62,9 +67,9 @@
                 echo "<tr>
                     <td>".$fila["id"]."</td>
                     <td>".$fila["nombre"]."</td>
-                    <td><img src='".mostrar_imagen('img/pokemones',$fila["imagen"])."' class='img-fluid'style='width: 10%'></td>    
-                    <td><img src='".mostrar_imagen('img/tipos',$fila["imgTipo"])."' class='img-fluid img-tipo' style='width: 10%'></td>  
-                    <td><a href='index.php?alta=0&id=".$fila["id"]."'>Modificar</a></td>
+                    <td><img src='".mostrar_imagen('img/pokemones',$fila["imagen"])."' class='img-fluid'style='width: 20%'></td>    
+                    <td><img src='".mostrar_imagen('img/tipos',$fila["imgTipo"])."' class='img-fluid img-tipo' style='width: 20%'></td>  
+                    <td><a href='index.php?alta=0&id=".$fila["id"]."'>Ver/Modificar</a></td>
                     <td><a href='index.php?delete=1&id=".$fila["id"]."'>Eliminar</a></td>
                 </tr>";
             }else{
@@ -72,8 +77,9 @@
             "<tr>
                 <td>".$fila["id"]."</td>
                 <td>".$fila["nombre"]."</td>
-                <td><img src='".mostrar_imagen('img/pokemones',$fila["imagen"])."' class='img-fluid' style='width: 10%'></td>  
-                <td><img src='".mostrar_imagen('img/tipos',$fila["imgTipo"])."' class='img-fluid' style='width: 10%'></td>  
+                <td><img src='".mostrar_imagen('img/pokemones',$fila["imagen"])."' class='img-fluid' style='width: 20%'></td>  
+                <td><img src='".mostrar_imagen('img/tipos',$fila["imgTipo"])."' class='img-fluid' style='width: 20%'></td> 
+                <td><a href='index.php?alta=0&id=".$fila["id"]."'>Ver</a></td> 
             </tr>";
             }
             $fila = $pokemones->fetch_assoc();

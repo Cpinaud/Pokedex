@@ -21,7 +21,8 @@
                                 $log->mostrarMenu();
                                 $log1 = new Popup();
                                 $log1->mostrarPopUpEliminarPokemon();
-
+                                $log2 = new Popup();
+                                $log2->mostrarPopUpPokemonEliminado();
                             }else{
                                 $log = new Popup();
                                 $log->mostrarPopUpCredencialesInvalidas();
