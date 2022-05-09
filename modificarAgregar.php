@@ -41,34 +41,52 @@
 
 <?php
     if($agregando){
-        echo " <div class='mb-3'>
-                  <label for='formFile' class='form-label'>Cógido</label>
-                  <input class='form-control' type='text' id='codigo' name='codigo'>
+        echo " <form method='POST' action='agregarPokemon.php'>
+        
+                <div class='mb-3'>
+                  <label for='formFile' class='form-label'>Codigo</label>
+                  <input class='form-control' type='text' id='codigo' name='codigo' required >
                 </div>
                 <div class='mb-3'>
                   <label for='formFileDisabled' class='form-label'>Nombre</label>
-                  <input class='form-control' type='text' id='nombre' name='nombre' multiple>
+                  <input class='form-control' type='text' id='nombre' name='nombre' multiple required>
                 </div>
                 <div class='mb-3'>
+                  <label for='formFileLg' class='form-label'>Cargue su imágen</label>
+                  <input class='form-control form-control-lg' id='imagen' type='file' required>
+                </div> <div class='mb-3'>
+                <div class='mb-3'>
                   <label for='formFileDisabled' class='form-label'>Descripción</label>
-                  <input class='form-control' type='text' id='descripcion' name='descripcion'>
+                  <textarea class='form-control' id='descripcion' name='descripcion' rows='4' cols='50' required></textarea>
+                
                 </div>
                
                 <div class='mb-3'>
-                  <label for='formFileLg' class='form-label'>Cargue su imágen</label>
-                  <input class='form-control form-control-lg' id='imagen' type='file'>
-                </div> <div class='mb-3'>
-                  <label for='formFileSm' class='form-label'>Tipo</label>
-                   <div class='dropdown'>
-                 <a class='btn btn-danger dropdown-toggle' href='#' role='button' id='dropdownMenuLink' data-bs-toggle='dropdown' aria-expanded='false'>
-                    Dropdown link
-                  </a>
-                 <ul class='dropdown-menu' aria-labelledby='dropdownMenuLink'>
-                        <li><a class='dropdown-item href='#'>aaaaaa</a></li>
-                       <li><a class='dropdown-item href='#'>bbbbbbb</a></li>
-                 </ul>
-                    </div>
+                <label for='tipos_pokemon'>Tipo</label>
+
+                <select name='tipos_pokemon' id='tipos_pokemon' required>
+                  <option value='1'>Planta</option>
+                  <option value='2'>Veneno</option>
+                  <option value='3'>Fuego</option>
+                  <option value='4'>Volador</option>
+                  <option value='5'>Agua</option>
+                  <option value='6'>Bicho</option>
+                  <option value='7'>Normal</option>
+                  <option value='8'>Electrico</option>
+                  <option value='9'>Tierra</option>
+                  <option value='10'>Hada</option>
+                  <option value='11'>Lucha</option>
+                  <option value='12'>Psiquico</option>
+                  <option value='13'>Roca</option>
+                  <option value='14'>Dragon</option>
+                  <option value='15'>Hielo</option>
+                  <option value='15'>Fantasma</option>
+                  <option value='18'>Acero</option>
+                  
+                </select>
                 </div>
+                <button type='submit' name='agregar'  >AGREGAR </button>
+                </form>
                ";
     }else {
         echo "
