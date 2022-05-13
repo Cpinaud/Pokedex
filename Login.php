@@ -45,13 +45,21 @@ class Login
                 return "<input class=' col-3 button1' type='submit' value='".$value."' name='".$name."'>";
             }
         }
+        if($name=='inicio'){
+            
+                return "<input class=' col-3 button1' type='submit' value='".$value."' name='".$name."'>";
+            
+        }
 
 
     }
     public function mostrarMenu(){
-        echo "<form  class=' row justify-content-end' action='Disconnect.php' method='POST'>
+        echo "
+        <form  class=' row justify-content-around' action='Disconnect.php' method='POST'>
            
-            ".$this->mostrarBoton("Salir","exit").
+            ".
+            $this->mostrarBoton("Inicio","inicio").
+            $this->mostrarBoton("Salir","exit").
         "</form>
         
             ";

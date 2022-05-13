@@ -2,6 +2,22 @@
     include_once("header.php");
 ?>
 <body>
+    <style>
+        body{
+    padding: 2%;
+    font-family:"animeace2_reg";
+    font-size:0.8em;
+
+  }
+  @font-face {
+    font-family: "animeace2_reg";
+    src: url('animeace2_reg.otf') format('truetype');
+    font-style: normal;
+    
+ 
+    
+  } 
+    </style>
 <header>
     <div class="row justify-content-between align-items-center">
         <div class="col-5 logo">
@@ -55,14 +71,17 @@
     <?php
         if(isset($_GET["alta"])){
             $alta=$_GET["alta"];
-
+            
             if($alta==0){
                 if(isset($_GET["id"])){
                     $id=$_GET["id"];
                 }
-                include_once("modificarAgregar.php");
+                include_once("AML.php");
             }else{
-                include_once("modificarAgregar.php");
+                if(isset($_GET["id"])){
+                    $id=$_GET["id"];
+                }
+                include_once("AML.php");
             }
 
 
@@ -73,6 +92,7 @@
         include_once("footer.php");
     ?>
     </div>
+       
 </body>
 </html>
    

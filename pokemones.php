@@ -30,7 +30,7 @@
                         <h1 class='tituloPokemones'>LOS POKEMONES SON:</h1>
                     </div>
                     <div  class='col-2'>
-                        <a href='index.php?alta=1' class='btn btn-outline-danger'>AGREGAR POKEMÓN</a>
+                        <a href='index.php?alta=1' class='btn btn-outline-danger'>AGREGAR POKEMON</a>
                     </div>
               </div>
               ";
@@ -69,7 +69,7 @@
                     <td>".$fila["nombre"]."</td>
                     <td><img src='".mostrar_imagen('img/pokemones',$fila["imagen"])."' class='img-fluid'style='width: 20%'></td>    
                     <td><img src='".mostrar_imagen('img/tipos',$fila["imgTipo"])."' class='img-fluid img-tipo' style='width: 20%'></td>  
-                    <td><a href='index.php?alta=0&id=".$fila["id"]."'>Ver/Modificar</a></td>
+                    <td><a href='index.php?alta=1&id=".$fila["id"]."'>Ver/Modificar</a></td>
                     <td><a href='index.php?delete=1&id=".$fila["id"]."'>Eliminar</a></td>
                 </tr>";
             }else{
@@ -79,7 +79,7 @@
                 <td>".$fila["nombre"]."</td>
                 <td><img src='".mostrar_imagen('img/pokemones',$fila["imagen"])."' class='img-fluid' style='width: 20%'></td>  
                 <td><img src='".mostrar_imagen('img/tipos',$fila["imgTipo"])."' class='img-fluid' style='width: 20%'></td> 
-                <td><a href='index.php?alta=0&id=".$fila["id"]."'>Ver</a></td> 
+                <td><a href='index.php?alta=1&id=".$fila["id"]."'>Ver</a></td> 
             </tr>";
             }
             $fila = $pokemones->fetch_assoc();

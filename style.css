@@ -203,9 +203,7 @@ header{
     position: center;
   }
 
-  body{
-    padding: 2%;
-  }
+  
 
   a{
     text-decoration: none;
@@ -226,3 +224,5 @@ header{
   @media (max-width:320px){
     
   }
+
+

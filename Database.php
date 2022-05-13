@@ -16,5 +16,13 @@ private function conectar(){
 public function isConnected(){
     return $this->conexion;
 }
+
+public function executeSqlQuery($sql){
+    if($this->isConnected){
+        $comando = ($this->isConnected())->prepare($sql);
+        $comando->execute();
+        return $comando;
+    }else echo "Error en la conexión a la base de datos";
+}
 }
 ?>
