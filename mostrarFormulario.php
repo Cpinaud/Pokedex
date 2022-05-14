@@ -5,7 +5,8 @@
               <div style='display: flex;flex-direction: row;text-align:center;justify-content:space-around'>
                   <div style='width: 40%;'>
                       <label for='formFile' class='form-label'>Codigo</label>
-                      <input class='form-control' type='text' id='codigo' name='codigo' value='".$codigo."' style='border: 2px solid black;' required >
+                      <input class='form-control' type='text' id='codigo' name='codigo' value='".$codigo."' style='border: 2px solid black;' required ".$flag2." >
+                      ".$newCode."
                   </div>
                   <div style='width: 40%;'>
                       <label for='formFileDisabled' class='form-label'>Nombre</label>
@@ -15,8 +16,10 @@
               
               
                   ".$imagen1."
+
               
               <div>
+              
                   <div class='mb-3'>
                   <label for='formFileDisabled' class='form-label'>Descripción</label>
                   <textarea class='form-control' id='descripcion' name='descripcion' rows='4' cols='50' style='border: 2px solid black;' required>$descripcion</textarea>
@@ -51,6 +54,7 @@
                   <input type='submit' name='agregar' class='btn btn-danger' style='box-shadow: 5px 4px 5px 2px rgba(0,0,0,0.75);' value='".$boton." POKEMON'> </input>
                   <script src='script.js'></script>
               </div>
+
               </form>
              ";
 ?>

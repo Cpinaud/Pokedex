@@ -67,7 +67,7 @@
                 echo "<tr>
                     <td>".$fila["id"]."</td>
                     <td>".$fila["nombre"]."</td>
-                    <td><img src='".mostrar_imagen('img/pokemones',$fila["imagen"])."' class='img-fluid'style='width: 20%'></td>    
+                    <td><a href='index.php?alta=1&id=".$fila["id"]."'><img src='".mostrar_imagen('img/pokemones',$fila["imagen"])."' class='img-fluid'style='width: 20%'></a></td>    
                     <td><img src='".mostrar_imagen('img/tipos',$fila["imgTipo"])."' class='img-fluid img-tipo' style='width: 20%'></td>  
                     <td><a href='index.php?alta=1&id=".$fila["id"]."'>Ver/Modificar</a></td>
                     <td><a href='index.php?delete=1&id=".$fila["id"]."'>Eliminar</a></td>
@@ -77,7 +77,7 @@
             "<tr>
                 <td>".$fila["id"]."</td>
                 <td>".$fila["nombre"]."</td>
-                <td><img src='".mostrar_imagen('img/pokemones',$fila["imagen"])."' class='img-fluid' style='width: 20%'></td>  
+                <td><a href='index.php?alta=1&id=".$fila["id"]."'><img src='".mostrar_imagen('img/pokemones',$fila["imagen"])."' class='img-fluid' style='width: 20%'></a></td>  
                 <td><img src='".mostrar_imagen('img/tipos',$fila["imgTipo"])."' class='img-fluid' style='width: 20%'></td> 
                 <td><a href='index.php?alta=1&id=".$fila["id"]."'>Ver</a></td> 
             </tr>";

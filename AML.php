@@ -26,26 +26,32 @@
             $nombre = $pokemonNombre;
             $descripcion = $pokemonDescripcion;
             $tipo = $pokemonNameTipo;
+            $id = $pokemonId;
             $boton = "MODIFICAR";
             $flag = " ";
+            $flag2 ="readonly";
+            $newCode = "<label for='formFile' class='form-label'>Nuevo codigo</label>
+                        <input class='form-control' type='text' id='newCodigo' name='newCodigo' value='".$codigo."' style='border: 2px solid black;' required  >";
             $imagen = "<div style='width:40%;'>
                             <p>Imagen actual</p>
                       
-                        
+                            <input name='id' value='".$id."' style='display:none'>
                             <img src='" . mostrar_imagen('img/pokemones', $pokemonImagen) . "' class='img-fluid' style='border:2px solid #CB2C19;'>
                         </div> 
                         ";
           }else{//SI DA DE ALTA, CARGA VARIABLES VACIAS
             $codigo ="";
             $nombre ="";
+            $newCode = " ";
             $imagen = "<div style='width:40%;'>
-            <img src=''  class='img-fluid' style='border:2px solid #CB2C19;' name='file'>
+            <img src=''  class='img-fluid' style='border:2px solid #CB2C19;' >
                         </div> 
                         ";
             $descripcion ="";
             $tipo ="";
             $boton = "AGREGAR";
             $flag = "required";
+            $flag2= " ";
           }
           //
           $imagen1 = "<div style='display: flex;flex-direction: row;  padding:2%;align-items:center;'>
