@@ -134,7 +134,37 @@ public function mostrarPopUpDetallePokemon(){
   } 
 }
 
-
+public function mostrarPopUpPokemonAgregado(){
+        
+        
+  if(isset($_GET["inserted"])){
+       
+       $inserted=$_GET["inserted"];
+       if(isset($_SESSION['logueado'])){
+              
+               if($inserted==1){
+                   $message = "Pokemon Agregado";
+               }else if($inserted==0){
+                  $message = "Pokemon modificado";
+               }else{
+                  $message = "Surgió un error al intentar agregar el Pokemón, intente nuevamente mas tarde";
+               }
+               echo"<div class='modal' tabindex='-1' style='display:flex'>
+                   <div class='modal-dialog'>
+                     <div class='modal-content'>
+                       <div class='modal-header'>
+                         <h5 class='modal-title'>".$message."</h5>
+                         <form action='closeDelete.php' method='POST'>
+                           <button type='submit' name='close' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                         </form>
+                       </div>
+                     </div>
+                   </div>
+                 </div>";
+       }
+   
+   } 
+}
 }
 include_once ("footer.php");
 ?>
