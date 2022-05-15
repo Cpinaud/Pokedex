@@ -165,6 +165,39 @@ public function mostrarPopUpPokemonAgregado(){
    
    } 
 }
+
+public function mostrarPopUpCodigoONombreExistente(){
+        
+        
+  if(isset($_GET["exist"])){
+       
+       $exist=$_GET["exist"];
+       if(isset($_SESSION['logueado'])){
+            if(isset($_GET["id"])){
+       
+              $id=$_GET["id"];
+            }
+               
+                   $message = "Codigo o Nombre ya existentes";
+               
+               echo"<div class='modal' tabindex='-1' style='display:flex'>
+                   <div class='modal-dialog'>
+                     <div class='modal-content'>
+                       <div class='modal-header'>
+                         <h5 class='modal-title'>".$message."</h5>
+                         <form action='closeDelete.php?exist=$exist&id=$id' method='POST'>
+                           <button type='submit' name='close' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                         </form>
+                       </div>
+                     </div>
+                   </div>
+                 </div>";
+       }
+   
+   } 
+}
+
+
 }
 include_once ("footer.php");
 ?>

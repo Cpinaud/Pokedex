@@ -1,6 +1,20 @@
 <?php
     if(isset($_POST["close"])){
-        header("location: Index.php");
+        if(isset($_GET["exist"])){
+            if($_GET["exist"]==0){
+                header("location: index.php?alta=1");
+            }else{
+                if(isset($_GET["id"])){
+                    $id=$_GET["id"];
+                }
+                header("location: index.php?alta=1&id=$id");
+            }
+            
+            
+        }else{
+            header("location: Index.php");
+        }
+        
         
     }
     if(isset($_POST["delete"])){
@@ -13,15 +27,19 @@
        
             if(isset($_POST["id"])){
                 $busqueda = $_POST["id"];
-                $sql = "SELECT id FROM pokemones WHERE  id = '$busqueda'";
+                $sql = "SELECT imagen FROM pokemones WHERE  id = '$busqueda'";
                 $comando = $conexion->prepare($sql);
                 $comando->execute();
                 $pokemones = $comando->get_result();
                 $fila = $pokemones->fetch_assoc();
+                $img = $fila["imagen"];
+                
+                
                 if(!empty($fila)){
                     $sql = "DELETE FROM pokemones WHERE id = '$busqueda'";
                     $comando = $conexion->prepare($sql);
                     $comando->execute();
+                    unlink('./img/pokemones'.$img);
                     if($comando){
                         header("location: Index.php?deleted=1");
                     }else{

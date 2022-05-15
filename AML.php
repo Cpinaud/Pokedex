@@ -31,7 +31,7 @@
             $flag = " ";
             $flag2 ="readonly";
             $newCode = "<label for='formFile' class='form-label'>Nuevo codigo</label>
-                        <input class='form-control' type='text' id='newCodigo' name='newCodigo' value='".$codigo."' style='border: 2px solid black;' required  >";
+                        <input class='form-control' type='text' id='newCodigo' name='newCodigo' value='".$codigo."' style='border: 2px solid black;' required  maxlength='6' minlength='6'>";
             $imagen = "<div style='width:40%;'>
                             <p>Imagen actual</p>
                       

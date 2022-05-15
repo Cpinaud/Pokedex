@@ -1,16 +1,16 @@
 <?php
       echo " 
-      <form action='modificarAgregar.php' method='POST'  id='formulario' style='display: flex;flex-direction: column;'  enctype='multipart/form-data'>
+      <form action='modificarAgregar.php' method='POST'  name='formulario' id='formulario' style='display: flex;flex-direction: column;'  enctype='multipart/form-data'>
       
               <div style='display: flex;flex-direction: row;text-align:center;justify-content:space-around'>
                   <div style='width: 40%;'>
                       <label for='formFile' class='form-label'>Codigo</label>
-                      <input class='form-control' type='text' id='codigo' name='codigo' value='".$codigo."' style='border: 2px solid black;' required ".$flag2." >
+                      <input class='form-control' type='text' id='codigo' name='codigo' value='".$codigo."' style='border: 2px solid black;' required ".$flag2."  maxlength='6' minlength='6'>
                       ".$newCode."
                   </div>
                   <div style='width: 40%;'>
                       <label for='formFileDisabled' class='form-label'>Nombre</label>
-                      <input class='form-control' type='text' id='nombre' name='nombre' multiple value='".$nombre."' style='border: 2px solid black;' required>
+                      <input class='form-control' type='text' id='name' name='nombre' multiple value='".$nombre."' style='border: 2px solid black;' required>
                   </div>
               </div>
               
@@ -53,6 +53,7 @@
               <div style='display:flex;justify-content:end' >
                   <input type='submit' name='agregar' class='btn btn-danger' style='box-shadow: 5px 4px 5px 2px rgba(0,0,0,0.75);' value='".$boton." POKEMON'> </input>
                   <script src='script.js'></script>
+                  <script src='validacion.js'></script>
               </div>
 
               </form>

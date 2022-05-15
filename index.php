@@ -41,6 +41,8 @@
                                 $log2->mostrarPopUpPokemonEliminado();
                                 $log3 = new Popup();
                                 $log3->mostrarPopUpPokemonAgregado();
+                                $log4 = new Popup();
+                                $log4->mostrarPopUpCodigoONombreExistente();
                             }else{
                                 $log = new Popup();
                                 $log->mostrarPopUpCredencialesInvalidas();
