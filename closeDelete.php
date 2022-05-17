@@ -8,11 +8,13 @@
                     $id=$_GET["id"];
                 }
                 header("location: index.php?alta=1&id=$id");
+				exit();
             }
             
             
         }else{
             header("location: Index.php");
+			exit();
         }
         
         
@@ -42,8 +44,10 @@
                     unlink('./img/pokemones'.$img);
                     if($comando){
                         header("location: Index.php?deleted=1");
+						exit();
                     }else{
                         header("location: Index.php?deleted=0");
+						exit();
                     }
                 }
                 }

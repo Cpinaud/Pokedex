@@ -25,6 +25,8 @@ $sqlConnect = $database->isConnected();
                     $modificando = false;
                     $agregando = false;
                 }else{//VA A MODIFICAR
+					
+					
                     $modificando = true;
                     $agregando = false;
                 }
@@ -35,8 +37,12 @@ $sqlConnect = $database->isConnected();
         }else{
             echo"<span id='errorConexion'>No se puedo conectar con la base de datos</span>";
         }
-    }else{//VA A AGREGAR
+    }elseif(isset($_SESSION["logueado"])){//VA A AGREGAR
         $modificando = false;
         $agregando = true;
-    }
+    }else{
+		header("location: Index.php?valid=0");
+		exit();
+	}
+	
     ?>

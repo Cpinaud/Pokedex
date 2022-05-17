@@ -1,4 +1,26 @@
 <?php
+    include_once("Database.php");
+    $database= new Database("config.ini");
+    $sqlConnect = $database->isConnected();
+    $sqlConsult = "SELECT * FROM tipos_pokemon";
+    $comando = $sqlConnect->prepare($sqlConsult);
+    $comando->execute();
+    $buscarPokemon = $comando->get_result();
+    $tipos = $buscarPokemon->fetch_assoc();
+    $combo = "";
+    while($tipos){
+        $tipo_id = $tipos["id"];
+        $nombre_id = $tipos["nombre"];
+        if($tipo==$nombre_id){
+            $selected="selected";
+        }else{
+            $selected=" ";
+        }
+        $option =  "<option value='".$tipo_id."' $selected>".$nombre_id."</option> ";
+        $combo = $combo.$option;
+        $tipos = $buscarPokemon->fetch_assoc();
+    }
+    
       echo " 
       <form action='modificarAgregar.php' method='POST'  name='formulario' id='formulario' style='display: flex;flex-direction: column;'  enctype='multipart/form-data'>
       
@@ -26,27 +48,10 @@
                   </div>
               
                   <div class='mb-3'>
-                  <label for='tipos_pokemon'>Tipo ".$tipo."</label>
+                  <label for='tipos_pokemon'>Tipo</label>
 
                   <select name='tipos_pokemon' id='tipos_pokemon' >
-                  <option value='1'>Planta</option>
-                  <option value='2'>Veneno</option>
-                  <option value='3'>Fuego</option>
-                  <option value='4'>Volador</option>
-                  <option value='5'>Agua</option>
-                  <option value='6'>Bicho</option>
-                  <option value='7'>Normal</option>
-                  <option value='8'>Electrico</option>
-                  <option value='9'>Tierra</option>
-                  <option value='10'>Hada</option>
-                  <option value='11'>Lucha</option>
-                  <option value='12'>Psiquico</option>
-                  <option value='13'>Roca</option>
-                  <option value='14'>Dragon</option>
-                  <option value='15'>Hielo</option>
-                  <option value='15'>Fantasma</option>
-                  <option value='18'>Acero</option>
-                  
+                  ".$combo."
                   </select>
                   </div>
               </div>

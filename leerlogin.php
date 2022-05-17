@@ -14,14 +14,15 @@
         $resultado = $comando->get_result();
         $userValido = $resultado->fetch_assoc();
         if(isset($userValido)){
-            setcookie("cookie1",md5($password),time()+3600);
             session_start();
             $_SESSION["logueado"] = 'true';
             header("location: Index.php?valid=0");
+			exit();
                
             }else{
     
                 header("location: Index.php?valid=1");
+				exit();
             }
 ?>
 

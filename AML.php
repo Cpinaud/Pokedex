@@ -1,9 +1,9 @@
 <?php
     include_once("header.php");
     
-    include_once "Database.php";
+    include_once ("Database.php");
     //determina si está modificando o agregando
-    include("tipoDeCambio.php")
+    include("tipoDeCambio.php");
     
      
 ?>
@@ -18,9 +18,8 @@
 
 
 <?php
- 
     
-        if($modificando==true || $agregando==true){
+        if(($modificando==true || $agregando==true)&&(isset($_SESSION["logueado"]))){
           if($modificando==true){//SI MODIFICA, CARGA VARIABLES CON LOS DATOS BAJADOS DE LA BD
             $codigo =$pokemonCodigo;
             $nombre = $pokemonNombre;

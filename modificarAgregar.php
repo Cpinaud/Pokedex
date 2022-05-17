@@ -80,6 +80,7 @@ include_once("Database.php");
                 }
                 if($resultado==0){
                     header("location: Index.php?inserted=1");
+					exit();
                 }else if($resultado==1){
                     $database= new Database("config.ini");
                     $sqlConnect = $database->isConnected();
@@ -126,16 +127,19 @@ include_once("Database.php");
                         $comando = $comando->fetch_assoc();
                         if(isset($comando["id"])){
                            header("location: index.php?exist=$resultado&id=$id");
+						   exit();
                           
                         }else{
                             $sqlConsult = "UPDATE pokemones Set numero_id='$newCodigo' where numero_id= '$codigo'";
                             $comando = mysqli_query($sqlConnect, $sqlConsult);
                             
                             header("location: Index.php?inserted=0");
+							exit();
                         }
                         
                     }else{
                         header("location: Index.php?inserted=0");
+						exit();
                     }
                     
                   
@@ -143,8 +147,10 @@ include_once("Database.php");
             }else{
                 if($resultado==1){
                     header("location: index.php?exist=$resultado&id=$id");
+					exit();
                 }else{
                     header("location: index.php?exist=$resultado");
+					exit();
                 }
                 
             }

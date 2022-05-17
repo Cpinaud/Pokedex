@@ -54,19 +54,8 @@
     </div>  
 </header>
 
-<div class="wrapper">
-		<ul class="bg-bubbles">
-            <li> <img src="img\pokefondo.png"></li>
-            <li> <img src="img\pokefondo.png"></li>
-            <li> <img src="img\pokefondo.png"></li>
-            <li> <img src="img\pokefondo.png"></li>
-            <li> <img src="img\pokefondo.png"></li>
-            <li> <img src="img\pokefondo.png"></li>
-            <li> <img src="img\pokefondo.png"></li>
-            <li> <img src="img\pokefondo.png"></li>
-            <li> <img src="img\pokefondo.png"></li>
-            <li> <img src="img\pokefondo.png"></li>		
-	</ul>
+<div class="wrapper" style="background:img\pokefondo.png">
+	
 </div>
 
    
@@ -76,17 +65,12 @@
         if(isset($_GET["alta"])){
             $alta=$_GET["alta"];
             
-            if($alta==0){
+            
                 if(isset($_GET["id"])){
                     $id=$_GET["id"];
                 }
                 include_once("AML.php");
-            }else{
-                if(isset($_GET["id"])){
-                    $id=$_GET["id"];
-                }
-                include_once("AML.php");
-            }
+            
 
 
         }else{
