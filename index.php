@@ -55,7 +55,18 @@
 </header>
 
 <div class="wrapper" style="background:img\pokefondo.png">
-	
+<ul class="bg-bubbles">
+            <li> <img src="img\pokefondo.png"></li>
+            <li> <img src="img\pokefondo.png"></li>
+            <li> <img src="img\pokefondo.png"></li>
+            <li> <img src="img\pokefondo.png"></li>
+            <li> <img src="img\pokefondo.png"></li>
+            <li> <img src="img\pokefondo.png"></li>
+            <li> <img src="img\pokefondo.png"></li>
+            <li> <img src="img\pokefondo.png"></li>
+            <li> <img src="img\pokefondo.png"></li>
+            <li> <img src="img\pokefondo.png"></li>		
+	</ul>
 </div>
 
    
